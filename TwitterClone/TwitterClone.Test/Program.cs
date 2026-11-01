@@ -1,3 +1,16 @@
 ﻿using TwitterClone.Domain.Entities;
-var user = new User();
-Console.WriteLine(user.DescribeRecord());
+
+
+var likeNotification = new LikeNotification(Guid.NewGuid());
+Console.WriteLine(likeNotification.GetMessage());
+
+var commentNotification = new CommentNotification(Guid.NewGuid());
+Console.WriteLine(commentNotification.GetMessage());
+
+var friendRequestNotification = new FriendRequestNotification(Guid.NewGuid());
+Console.WriteLine(friendRequestNotification.GetMessage());
+
+var mentionNotification = new MentionNotification(Guid.NewGuid());
+Console.WriteLine(mentionNotification.GetMessage());
+
+
