@@ -1,8 +1,12 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class CommentNotification : Notification
+    public sealed class CommentNotification : Notification
     {
         public CommentNotification(Guid commentByUserId) : base("Comment")
         {
@@ -20,6 +24,11 @@ namespace TwitterClone.Domain.Entities
         {
             var baseRecord = base.DescribeRecord();
             return $"{baseRecord}, CommentByUserId: {CommentByUserId}";
+        }
+
+        public override string GetMessage()
+        {
+            return $"User with ID {CommentByUserId} commented on your post.";
         }
     }
 }

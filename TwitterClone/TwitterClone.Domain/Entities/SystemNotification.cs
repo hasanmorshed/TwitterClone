@@ -1,8 +1,12 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class SystemNotification : Notification
+    public sealed class SystemNotification : Notification
     {
         public SystemNotification() : base("System")
         {
@@ -17,6 +21,11 @@ namespace TwitterClone.Domain.Entities
         public override string DescribeRecord()
         {
             return base.DescribeRecord();
+        }
+
+        public override string GetMessage()
+        {
+            return $"System Notification: Unknown Error";
         }
     }
 }

@@ -1,9 +1,14 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class LikeNotification : Notification
+    public sealed class LikeNotification : Notification
     {
+
         public LikeNotification(Guid likeByUserId) : base("Like")
         {
             LikeByUserId = likeByUserId;
@@ -16,10 +21,11 @@ namespace TwitterClone.Domain.Entities
             Message = message;
         }
 
-        public override string DescribeRecord()
+
+
+        public override string GetMessage()
         {
-            var baseRecord = base.DescribeRecord();
-            return $"{baseRecord}, LikeByUserId: {LikeByUserId}";
+            return $"User with ID {LikeByUserId} liked your post.";
         }
     }
 }
